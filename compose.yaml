@@ -1,0 +1,34 @@
+name: stable-diffusion-docker
+services:
+  stable-diffusion:
+    container_name: stable-diffusion
+    tty: true
+    build:
+      context: ./stable-diffusion
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./stable-diffusion/models
+        target: /app/models
+      - type: bind
+        source: ./stable-diffusion/outputs
+        target: /app/outputs
+      - type: volume
+        source: cache
+        target: /root/.cache
+    environment:
+      TZ: Asia/Tokyo
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids:
+                - "0"
+              capabilities:
+                - compute
+                - utility
+volumes:
+  cache:
+    name: cache
+    driver: local
