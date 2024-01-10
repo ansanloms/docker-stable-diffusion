@@ -1,4 +1,4 @@
-/stable-diffusion/outputs/*
-!/stable-diffusion/outputs/.gitkeep
-/stable-diffusion/models/*
-!/stable-diffusion/models/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+/models/*
+!/models/.gitkeep

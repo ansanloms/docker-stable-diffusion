@@ -8,10 +8,10 @@ services:
       dockerfile: Dockerfile
     volumes:
       - type: bind
-        source: ./stable-diffusion/models
+        source: ./models
         target: /app/models
       - type: bind
-        source: ./stable-diffusion/outputs
+        source: ./outputs
         target: /app/outputs
       - type: volume
         source: cache
