@@ -1,4 +1,4 @@
-name: stable-diffusion-docker
+name: docker-stable-diffusion
 services:
   stable-diffusion:
     container_name: stable-diffusion
@@ -13,11 +13,15 @@ services:
       - type: bind
         source: ./outputs
         target: /app/outputs
+      - type: bind
+        source: ./src
+        target: /app/src
       - type: volume
         source: cache
-        target: /root/.cache
+        target: /app/cache
     environment:
       TZ: Asia/Tokyo
+      TRANSFORMERS_CACHE: /app/cache
     deploy:
       resources:
         reservations:

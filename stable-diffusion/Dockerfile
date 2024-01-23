@@ -15,7 +15,7 @@ RUN rm -rf Python-3.10.6 Python-3.10.6.tgz
 RUN git clone https://github.com/Stability-AI/stablediffusion.git app
 WORKDIR /app
 
-RUN pip3.10 install transformers==4.19.2 diffusers invisible-watermark
+RUN pip3.10 install transformers diffusers invisible-watermark xformers
 RUN pip3.10 install -r requirements.txt
 RUN pip3.10 install -e .
-RUN pip3.10 install xformers
+RUN pip3.10 install --upgrade transformers accelerate
